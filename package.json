@@ -26,6 +26,8 @@
 		"process": "^0.11.10",
 		"querystring-es3": "^0.2.1",
 		"readable-stream-no-circular": "^3.6.0",
+		"sass": "^1.51.0",
+		"sugarss": "^4.0.1",
 		"timers-browserify": "^2.0.12",
 		"tty-browserify": "^0.0.1",
 		"url-polyfill": "^1.1.12",
