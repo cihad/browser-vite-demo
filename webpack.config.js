@@ -46,6 +46,7 @@ module.exports = [
 				timers: "timers-browserify",
 				tty: "tty-browserify",
 				esbuild: "esbuild-wasm",
+				module: path.resolve(__dirname, "./src/shims/module.js")
 			},
 			fallback: {
 				util: require.resolve("util"),
