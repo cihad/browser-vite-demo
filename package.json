@@ -16,16 +16,20 @@
 		"workbox-webpack-plugin": "^6.5.3"
 	},
 	"dependencies": {
+		"assert": "^2.0.0",
 		"buffer": "^6.0.3",
 		"crypto-browserify": "^3.12.0",
 		"esbuild-wasm": "^0.14.38",
 		"memfs": "^3.4.1",
 		"os-browserify": "^0.3.0",
 		"path-browserify": "^1.0.1",
+		"process": "^0.11.10",
 		"querystring-es3": "^0.2.1",
 		"readable-stream-no-circular": "^3.6.0",
 		"timers-browserify": "^2.0.12",
 		"tty-browserify": "^0.0.1",
+		"url-polyfill": "^1.1.12",
+		"util": "^0.12.4",
 		"vite": "npm:browser-vite",
 		"workbox-routing": "^6.5.3"
 	}
