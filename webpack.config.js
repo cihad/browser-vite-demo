@@ -63,6 +63,9 @@ module.exports = [
 				perf_hooks: false,
 			},
 		},
+		module: {
+			exprContextCritical: false,
+		},
 		plugins: [
 			new HtmlWebpackPlugin({
 				title: "The frame who accepts the requests",
@@ -70,6 +73,7 @@ module.exports = [
 				filename: "frame.html",
 			}),
 			new webpack.HotModuleReplacementPlugin(),
+			new webpack.ContextReplacementPlugin(/any-promise/)
 		],
 	},
 ]
