@@ -18,7 +18,7 @@ export async function createServer() {
 		{
 			plugins: [
 				// virtual plugin to provide vite client/env special entries (see below)
-				viteClientPlugin,
+				// viteClientPlugin,
 				// virtual plugin to resolve NPM dependencies, e.g. using unpkg, skypack or another provider (browser-vite only handles project files)
 				// nodeResolvePlugin,
 				// add vite plugins you need here (e.g. vue, react, astro ...)
