@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"scripts": {
 		"watch": "webpack --watch",
-		"serve": "webpack serve --open"
+		"serve": "webpack serve --open",
+		"build": "webpack"
 	},
 	"devDependencies": {
 		"html-webpack-plugin": "^5.5.0",
