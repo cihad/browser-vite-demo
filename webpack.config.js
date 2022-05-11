@@ -26,9 +26,10 @@ module.exports = [
 	},
 	{
 		mode: "development",
+		context: path.resolve(__dirname, "./src/frame"),
 		entry: {
-			frame: "./src/frame/frame.js",
-			"vite-worker": "./src/frame/vite-worker.js",
+			frame: "./frame.js",
+			"vite-worker": "./vite-worker.js",
 		},
 		output: {
 			path: path.resolve(__dirname, "dist"),
@@ -70,7 +71,7 @@ module.exports = [
 		plugins: [
 			new HtmlWebpackPlugin({
 				title: "The frame who accepts the requests",
-				template: "./src/frame/frame.html",
+				template: "./frame.html",
 				filename: "frame.html",
 			}),
 			new webpack.HotModuleReplacementPlugin(),
