@@ -28,7 +28,7 @@ module.exports = [
 		mode: "development",
 		entry: {
 			frame: "./src/frame/frame.js",
-			worker: "./src/frame/vite-worker.js",
+			"vite-worker": "./src/frame/vite-worker.js",
 		},
 		output: {
 			path: path.resolve(__dirname, "dist"),
@@ -46,7 +46,7 @@ module.exports = [
 				timers: "timers-browserify",
 				tty: "tty-browserify",
 				esbuild: "esbuild-wasm",
-				module: path.resolve(__dirname, "./src/shims/module.js")
+				module: path.resolve(__dirname, "./src/shims/module.js"),
 			},
 			fallback: {
 				util: require.resolve("util"),
@@ -65,6 +65,7 @@ module.exports = [
 		},
 		module: {
 			exprContextCritical: false,
+			unknownContextCritical: false,
 		},
 		plugins: [
 			new HtmlWebpackPlugin({
@@ -73,7 +74,6 @@ module.exports = [
 				filename: "frame.html",
 			}),
 			new webpack.HotModuleReplacementPlugin(),
-			new webpack.ContextReplacementPlugin(/any-promise/)
 		],
 	},
 ]
