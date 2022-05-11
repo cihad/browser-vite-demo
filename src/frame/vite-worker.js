@@ -145,6 +145,8 @@ async function optimizeDeps(server, config, deps) {
 	return data
 }
 
-onmessage = function (oEvent) {
-	console.log({ oEvent })
+self.onmessage = ({ data: { question } }) => {
+	self.postMessage({
+		answer: 42,
+	})
 }
