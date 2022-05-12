@@ -1,4 +1,6 @@
-navigator.serviceWorker.register("/service-worker.js")
+navigator.serviceWorker.register(
+	new URL("./service-worker.js", import.meta.url)
+)
 navigator.serviceWorker.ready.then(() =>
 	console.log("Service worker is running.")
 )

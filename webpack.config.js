@@ -1,6 +1,7 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const webpack = require("webpack")
+const ReplacePlugin = require("webpack-plugin-replace")
 
 module.exports = [
 	{
@@ -29,7 +30,6 @@ module.exports = [
 		context: path.resolve(__dirname, "./src/frame"),
 		entry: {
 			frame: "./frame.js",
-			"vite-worker": "./vite-worker.js",
 		},
 		output: {
 			path: path.resolve(__dirname, "dist"),
@@ -74,7 +74,21 @@ module.exports = [
 				template: "./frame.html",
 				filename: "frame.html",
 			}),
-			new webpack.HotModuleReplacementPlugin(),
+			new webpack.DefinePlugin({
+				"process.env.NODE_DEBUG": JSON.stringify(
+					process.env.NODE_DEBUG
+				),
+				"process.versions": JSON.stringify(process.versions),
+				"process.platform": JSON.stringify(process.platform),
+				"process.env.VITE_DEBUG_FILTER": JSON.stringify(
+					process.env.VITE_DEBUG_FILTER
+				),
+			}),
+			new ReplacePlugin({
+				values: {
+					"{ global }": "          ", // don't touch :)
+				},
+			}),
 		],
 	},
 ]
