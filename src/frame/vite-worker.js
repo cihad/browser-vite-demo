@@ -104,7 +104,9 @@ export async function runOptimize(server) {
 			...server.config.build,
 			rollupOptions: {
 				...server.config.build.rollupOptions,
-				input: ENTRY_FILES,
+				input: {
+					index: "index.js",
+				},
 			},
 		},
 	}
@@ -145,8 +147,12 @@ async function optimizeDeps(server, config, deps) {
 	return data
 }
 
-self.onmessage = ({ data: { question } }) => {
-	self.postMessage({
-		answer: 42,
-	})
+const server = createServer()
+
+const channel = new BroadcastChannel("my_bus")
+
+channel.onmessage = function (event) {
+	console.log("[vite-worker.js]", event)
+	debugger
+	// channel.postMessage({ server })
 }
