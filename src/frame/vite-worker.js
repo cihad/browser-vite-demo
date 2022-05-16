@@ -13,6 +13,8 @@ import {
 	PluginOption,
 } from "vite"
 
+import { fs, vol } from "fs"
+
 export async function createServer() {
 	const config = await resolveConfig(
 		{
@@ -153,6 +155,21 @@ const channel = new BroadcastChannel("my_bus")
 
 channel.onmessage = function (event) {
 	console.log("[vite-worker.js]", event)
-	debugger
-	// channel.postMessage({ server })
+
+	channel.postMessage(
+		new Blob([JSON.stringify({ message: "hello from vite worker" })])
+	)
 }
+
+const files = {
+	"./index.html": `<!doctype html>
+<html>
+<body>
+	<script src="./main.js"></script>
+</body>
+</html>
+`,
+	"./main.js": "alert('yayyy!')",
+}
+
+vol.fromJSON(files)
