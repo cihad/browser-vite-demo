@@ -48,10 +48,10 @@ module.exports = [
 				tty: "tty-browserify",
 				esbuild: "esbuild-wasm",
 				module: path.resolve(__dirname, "./src/shims/module.js"),
+				url: path.resolve(__dirname, "./src/shims/url.js"),
 			},
 			fallback: {
 				util: require.resolve("util"),
-				url: require.resolve("url-polyfill"),
 				os: require.resolve("os-browserify/browser"),
 				assert: require.resolve("assert"),
 				process: require.resolve("process/browser"),
